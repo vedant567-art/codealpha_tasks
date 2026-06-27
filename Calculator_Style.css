@@ -1,0 +1,86 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+.Container
+{
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.Calculator
+{
+
+    background-color: grey;
+    padding: 20px;
+    width: 380px;
+    height: 600px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px 0px black;
+    margin-bottom: 40px;
+    border: 2px solid rgb(171, 212, 176);
+    display: grid;
+    grid: template-columns repeat(3, 1fr);
+    gap: 10px;
+
+}
+
+.Calculator form input
+{
+    border: 3px  solid green;
+    outline: none;
+    width: 100px;
+    height: 60px;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    color: blue;
+}
+.Calculator form input:hover
+{
+    background-color: black;
+    color: white;
+    border: 3px solid white;
+}
+
+.form .Output
+{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin: 20px;
+}
+
+form .Output input
+{
+    width: 90%;
+    height: 60px;
+    font-size: 30px;
+    text-align: right;
+    padding-right: 20px;
+    border-radius: 20px;
+    border: 3px solid green;
+    color: red;
+    background-color: cyan
+}
+
+form input.equal
+{
+    background-color: pink;
+    color: black;
+    border: 3px solid orange;
+}
+form input.equal:hover
+{
+    background-color: white;
+    color: black;
+    border: 3px solid black;
+}
+.operator
+{
+background-color: pink;
+}

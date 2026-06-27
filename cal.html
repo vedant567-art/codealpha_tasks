@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<head>
+    <title>Calaculator</title>
+    <link  rel="stylesheet" href="style.css">
+</head>
+<Body>
+<h1 style="color: orangered;">
+    <marquee>Simple Calculator</marquee>
+</h1>
+<div class="Container">
+<div class="Calculator">
+    <form onsubmit="return false">
+        <div class="Output">
+            <input type="text" placeholder="0" id="output" disabled>
+        </div>
+         <div>
+            <input type="button" value="-" onclick="append('-')" class="operator">
+            <input type="button" value="*" onclick="append('*')" class="operator">
+            <input type="button" value="/" onclick="append('/')" class="operator">
+        <div>
+            <input type="button" value="Ac" onclick="clearOutput()">
+            <input type="button" value="Del" onclick="deleteLast()">
+            <input type="button" value="+" onclick="append('+')" class="operator">
+        </div>
+         <div>
+            <input type="button" value="1" onclick="append('1')">
+            <input type="button" value="2" onclick="append('2')">
+            <input type="button" value="3" onclick="append('3')">
+        </div>
+        <div>
+            <input type="button" value="4"  onclick="append('4')">
+            <input type="button" value="5"  onclick="append('5')">
+            <input type="button" value="6"  onclick="append('6')">
+        </div>
+        <div>
+            <input type="button" value="7" onclick="append('7')">
+            <input type="button" value="8" onclick="append('8')">
+            <input type="button" value="9" onclick="append('9')">
+        </div>
+            <input type="button" value="0" onclick="append('0')">
+            <input type="button" value="00" onclick="append('00')">
+            <input type="button" value="=" class="equal" onclick="calculate()">
+    </form>
+</div>
+
+<script>
+function getOut(){ return document.getElementById('output'); }
+function append(s){ const o = getOut(); if (o.value === 'Error') { o.value = s; return; } o.value = (o.value === '') ? s : o.value + s; }
+function deleteLast(){ const o = getOut(); const value = o.value.toString(); o.value = value === 'Error' ? '' : value.slice(0, -1); }
+function clearOutput(){ getOut().value = ''; }
+function calculate(){ const o = getOut(); try { o.value = eval(o.value || '0'); } catch (e) { o.value = 'Error'; }}
+window.addEventListener('keydown', function(event) {
+    const key = event.key;
+    const numericOrOperator = '0123456789+-*/.';
+
+    if (numericOrOperator.includes(key)) {
+        event.preventDefault(); 
+        append(key);
+        return;
+    }
+
+    if (key === 'Enter') {
+        event.preventDefault();
+        calculate();
+        return;
+    }
+
+    if (key === 'Backspace') {
+        event.preventDefault();
+        deleteLast();
+        return;
+    }
+
+    if (key === 'r' || key === 'Delete') {
+        event.preventDefault();
+        clearOutput();
+        return;
+    }
+});
+</script>
+</div>
+</div>
+</body>
+</html>
